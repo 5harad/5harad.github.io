@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    {% include head_style.html %}
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    
+    {% include nav.html %}
+        <section id="title-section" class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+                    
+                    {% if page.date %}
+                    <small>{{ page.date | date_to_long_string }}</small>
+                    {% endif %}
+                    
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.subtitle }}</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="{{ page.title }}" class="container-fluid content-section static-section">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+                    
+                    {{ content }}
+
+                </div>
+
+            </div>
+        </section>
+        
+        {% include footer.html %}
+        {% include js-findings.html %}
+    </body>
+</html>

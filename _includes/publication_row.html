@@ -1,0 +1,14 @@
+
+
+
+<div class="row article row-eq-height">
+    <div class="col-md-4">
+        <a href="{{ post.url }}"><img src="{{ post.img }}" width="100%"></a>
+    </div>
+    <div class="col-md-8 article-info {{ post.publication-type }}" publication-type="{{ post.publication-type }}">
+        <a href="{{ post.url }}" target="_blank"><h2>{{ post.headline }}</h2></a>
+        <small class="byline">{{ post.authors }}</small>
+        <p><small class="byline">{{ post.publication }}</small></p>
+        <p>{{ post.blurb }}</p> 
+    </div>
+</div>

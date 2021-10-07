@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+        {% include nav.html %}
+        {% include header.html %}
+        {% if site.featured-story %}
+            {% include featured_story.html %}
+        {% endif %}
+        {% include intro.html %}
+        {% include get_started_callout.html %}
+        {% include people.html %}
+        {% include footer.html %}
+        {% include js.html %}
+
+        <script type="text/javascript">
+var cartogramData = [
+    {% assign groups = site.data.downloads-summary | group_by: "state" | sort:"name" %}
+    {% for group in groups %}
+        {state: "{{group.name}}", items: [
+            {% for item in group.items %}{{item.nrows}},{% endfor %}
+        ]},
+    {% endfor %}
+].map(function(obj) {
+    obj.n = obj.items.reduce(function(agg, x) { return agg + x; }, 0);
+    return obj;
+});
+
+var allStates = [ "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" ];
+
+var data = allStates.reduce(function(agg, abbr) {
+    agg[abbr] = {value: "0", Stops: "0"};
+    return agg;
+}, {});
+
+const fmtInt = d3.format(",");
+
+// TODO(jnu): could add details about state vs city stops
+cartogramData.map(function(d) {
+    data[d.state].value = "1";
+    data[d.state].Stops = fmtInt(d.n);
+});
+
+/**
+ * Squaire script for making landing page cartogram
+ */
+var options = {
+        // Add tooltips!
+        colors: d3.scale.ordinal().domain([0,1]).range(['#35434A','#2090FF']),
+        tooltip: {
+            enabled: true,
+            el: "#custom-layout-toolbox",
+            whitelist: ["Stops"]
+        },
+    };
+
+new Squaire(data, options);
+        </script>
+</html>

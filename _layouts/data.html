@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    {% include head_style.html %}
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include nav.html %}
+    
+    <section id="title-section" class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-sm-9 col-md-7 col-md-offset-2 col-sm-offset-1">
+                
+                {% if page.date %}
+                <small>{{ page.date | date_to_long_string }}</small>
+                {% endif %}
+                
+                <h1>{{ page.title }}</h1>
+                <p>{{ page.subtitle }}</p>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid content-section static-section">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-7 col-md-offset-2 col-sm-offset-1">
+                    {{ content }}
+               </div>
+            </div>        
+            <div class="row-fluid">
+                <div class="col-sm-9 col-sm-offset-1 col-md-10 col-md-offset-1">
+                    <table id="data-fixed-header" class="table">
+                        
+                        {% include data_table_header.html %}
+                        
+                        {% assign downloads = site.data.downloads-summary | group_by: "state" | sort:"name" %}
+                        {% assign threshold = 0.7 %}
+                        {% for group in downloads %}
+                            <tbody>
+                                <tr class="state-title">
+                                    <td colspan="19">{{ group.name }}</td>
+                                </tr>
+                                {% assign items = group.items | sort:"city" %}
+                                {% for row in items %}
+                                  <tr>
+                                    <td class="state text-left" data-title="State">
+                                        {% if row.city == "Statewide" %}
+                                        <span>State Patrol{% if row.state_with_local_data == "TRUE" %}<sup>1</sup>{% endif %}</span>
+                                        {% else %}
+                                        <span>{{ row.city }}</span>
+                                        {% endif %}
+                                    </td>
+
+                                    <td data-title="Download">
+                                        <a href="{{ row.csv_zip }}" title="Download data as CSV">
+                                            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+                                        </a>
+                                        <a href="{{ row.rds }}" title="Download data as RDS">
+                                            <span>R</span>
+                                        </a>
+                                        {% if row.shapefiles %}
+                                        <a href="{{ row.shapefiles }}" title="Download shapefile">
+                                            <span><i class="fa fa-globe"></i></span>
+                                        </a>
+                                        {% endif %}
+                                    </td>
+
+                                    <td class="text-right" data-title="Stops">
+                                        <span>
+                                            <span class="-fmt -int">
+                                                {{ row.nrows }}
+                                            </span>
+                                            {% if row.has_pedestrian_stops == "TRUE" %}<sup>2</sup>{%endif %}
+                                        </span>
+                                    </td>
+
+                                    <td class="text-right" data-title="Time range">
+                                        <span class="-fmt -date">{{ row.start_date }}</span> - <span class="-fmt -date">{{ row.end_date }}</span></td>
+
+
+                                    <th class="box-header" data-title="Data available"></th>
+
+                                    {% assign v = row.date | plus:0 %}
+                                    <td class="text-center box" data-title="Stop date">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.time | plus:0 %}
+                                    <td class="text-center box" data-title="Stop time">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.subgeography | plus:0 %}
+                                    <td class="text-center box" data-title="Stop location">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.subject_race | plus:0 %}
+                                    <td class="text-center box" data-title="Driver race">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.subject_sex | plus:0 %}
+                                    <td class="text-center box" data-title="Driver sex">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.subject_age | plus:0 %}
+                                    <td class="text-center box" data-title="Driver age">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.search_conducted | plus:0 %}
+                                    <td class="text-center box" data-title="Search conducted">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.contraband_found | plus:0 %}
+                                    <td class="text-center box" data-title="Contraband found">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.citation_issued | plus:0 %}
+                                    <td class="text-center box" data-title="Citation issued">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.warning_issued | plus:0 %}
+                                    <td class="text-center box" data-title="Warning issued">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.frisk_performed | plus:0 %}
+                                    <td class="text-center box" data-title="Frisk performed">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.arrest_made | plus:0 %}
+                                    <td class="text-center box" data-title="Arrest made">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+                                    {% assign v = row.reason_for_stop | plus:0 %}
+                                    <td class="text-center box" data-title="Reason for stop">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                    {% assign v = row.violation | plus:0 %}
+                                    <td class="text-center box" data-title="Violation">{% if v >= threshold %}<i class="fa fa-square" aria-hidden="true"></i>{% endif %}</td>
+
+                                  </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                    <p><sup>1</sup> Includes data from local jurisdictions in addition to state patrol stops.</p>
+                    <p><sup>2</sup> Includes pedestrian in addition to vehicular stops.</p>
+                </div>
+            </div>
+        </section>
+        
+    {% include footer.html %}
+    {% include js.html %}
+    <script type="text/javascript">
+    !function() {
+        // Type formatting
+        var fmtInt = d3.format(",");
+
+        var _fmtDate = d3.time.format("%b %Y");
+        function fmtDate(d) {
+            var date = new Date(d);
+            return _fmtDate(date);
+        }
+        
+        function format(sel, fmt) {
+            d3.selectAll(sel)
+                .each(function() {
+                    var me = d3.select(this);
+                    var raw = me.text();
+                    me.text(fmt(raw));
+                });
+        }
+
+        format(".-fmt.-int", fmtInt);
+        format(".-fmt.-date", fmtDate);
+    }();
+    </script>
+    </body>
+</html>

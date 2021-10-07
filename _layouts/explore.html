@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+    {% include head.html %}
+    {% include head_style.html %}
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        {% include nav.html %}
+
+        <!-- viz bootstrap -->
+        <div id="scpl-opp-stopsMap" style="width: 100%; height: calc(100vh - 73px);"></div>
+        <script src="{{ "/js/projects/city-traffic-stops.js" | prepend: site.baseurl }}" data-target="#scpl-opp-stopsMap"></script>
+
+        {{ content }}
+
+        {% include footer.html %}
+        {% include js.html %}
+    </body>
+
+</html>

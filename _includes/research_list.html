@@ -1,0 +1,20 @@
+    <!-- Part 1 -->
+
+
+    {% for post in site.publications %}
+        <div class="row research row-eq-height">
+            <div class="col-md-4">
+                <a href="{{ post.url }}"><img src="{{ post.img }}" width="100%"></a>
+            </div>
+            <div class="col-md-8">
+                <div class="center">
+                    <a href="{{ post.url }}"><h2>{{ post.headline }}</h2></a>
+                    <small class="byline">{{ post.authors }}</small>
+                    <p><small>{{ post.publication }}</small></p>
+                    <p>{{ post.blurb }}</p> 
+                    
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+                

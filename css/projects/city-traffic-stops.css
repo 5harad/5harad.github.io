@@ -1,0 +1,206 @@
+/*@import "https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+ * */
+
+.viz_section {
+    background-color: #333;
+}
+
+.leaflet-tooltip {
+    border: 0;
+    background-color: rgba(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.21);
+    color: white;
+}
+
+.leaflet-tooltip-right:before {
+    border-right-color: rgba(0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0.21);
+}
+
+.leaflet-tooltip-left:before {
+    border-left-color: rgba(0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0.21);
+}
+
+#viz_controls select {
+    background-color: rgba(30, 30, 30, 0.5);
+    color: white;
+    margin-bottom: 20px;
+}
+
+#viz_controls label {
+    display: block;
+}
+
+.mode_toggle {
+    margin-bottom: 1rem;
+}
+
+.viz_section_body {
+    z-index: 1000;
+}
+
+.city-map {
+    position: relative;
+}
+
+#city-map-container {
+    white-space: nowrap;
+}
+
+.city-map .timeline {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 1001;
+}
+
+.viz_section_header {
+    border-bottom-right-radius: 5px;
+    padding: 10px 30px 20px 30px;
+    top: 73px;
+    background-color: rgba(10, 10, 10, 0.5);
+    z-index: 1001;
+    position: absolute;
+    color: #fff;
+}
+
+.viz_section_header .section_title {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.viz-is-loading #viz-loader {
+    display: block;
+    z-index: 9999;
+    background-color: rgba(0.1, 0.1, 0.1, 0.6);
+}
+
+#viz-loader {
+    display: none;
+    padding-top: 50vh;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#viz_legend .swatch {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#viz_legend .block {
+    cursor: pointer;
+    line-height: 22px;
+}
+
+#time-label {
+    position: absolute;
+    bottom: 5rem;
+    left: 4rem;
+    z-index: 1003;
+    color: white;
+    font-size: 20px;
+}
+
+#date-label {
+    position: absolute;
+    font-size: 14px;
+    color: #eee;
+    bottom: 8rem;
+    left: 1rem;
+    z-index: 1003;
+}
+
+#time-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1002;
+    cursor: crosshair;
+}
+
+#time-area path {
+    fill: rgb(255, 253, 204);
+    fill: rgba(255, 253, 204, 0.86);
+}
+
+#time-area .pointer {
+    stroke: #d27373;
+    stroke-width: 4;
+    cursor: ew-resize;
+}
+
+#time-control {
+    position: absolute;
+    left: 1rem;
+    bottom: 5rem;
+    z-index: 1004;
+    color: white;
+    font-size: 20px;
+}
+
+.viz_legend_container {
+    margin-bottom: 20px;
+}
+
+.city-map .leaflet-container {
+    background-color: #333;
+}
+
+.city-map + .city-map {
+    border-left: 2px solid #FF5722;
+}
+
+.agg-label {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.6rem;
+    color: white;
+    z-index: 1002;
+}
+
+.map-pane-label {
+    z-index: 1003;
+    color: white;
+    position: absolute;
+    top: 2rem;
+    right: 5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.viz-error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.8);
+    z-index: 99999;
+}
+
+.viz-error > div {
+    position: absolute;
+    top: 50vh;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.filter-disabled {
+    opacity: 0.5;
+}
+

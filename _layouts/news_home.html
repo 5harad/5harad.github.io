@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    {% include head_style.html %}
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    
+    {% include nav.html %}
+
+        <section id="title-section" class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-sm-7 col-md-offset-2 col-sm-offset-1">
+                    <h1>News</h1>
+                </div>
+            </div>
+        </section>
+        
+        <section id="publication-list" class="content-section container-fluid">
+    
+            <div class="row-fluid section-text">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+
+                    <div class="lead-image" style="background-image:url({{ site.posts[0].img }})">
+                        <div>
+                            <small>{{ site.posts[0].date | date_to_long_string }}</small>
+                            <a href="{{ site.posts[0].url }}">
+                                <h1>{{ site.posts[0].title }}</h1>  
+                            </a>      
+                            <p>{{ site.posts[0].excerpt }}</p>   
+                        </div>              
+                    </div>
+
+                    {% for post in site.posts %}
+                        <div class="row blog row-eq-height">
+                            <div class="col-md-5 col-lg-4">
+                                <img src="{{ post.img }}" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="center">
+                                    <a href="{{ post.url }}">
+                                        <h2>{{ post.title }}</h2>
+                                    </a>
+                                    <small>{{ post.date | date_to_long_string }}</small>
+                                    <p>{{ post.excerpt }}</p> 
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+
+                </div>
+            </div>
+        </section>
+
+        
+        {% include footer.html %}
+        {% include js.html %}
+
+    </body>
+</html>

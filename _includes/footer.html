@@ -1,0 +1,28 @@
+    <!-- <div class="separator"></div> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                
+                <h2>Partners</h2>
+
+                <div class="logos-container">
+                    {% for partner in site.partners %}
+                        <a href="{{ partner.link }}" target="_blank"><img class="partner-logo" src="{{ partner.logo }}"></a>
+                    {% endfor %}
+                </div>
+
+                <div class="contact-link">
+                    <a href="mailto:open-policing@lists.stanford.edu">Contact us</a>
+                </div>
+                
+                
+                <h5><a href="{{ site.social.github }}" target="_blank"><i class="fa fa-github"></i> View our code on Github</a></h5>
+
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>Copyright &copy; {{ site.title }} 20{{ site.time | date: '%y' }}</p>
+        </div>
+    </footer>

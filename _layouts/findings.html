@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    
+
+    <!-- Static-page specific styles -->
+    <style type="text/css">
+        nav.navbar.navbar-custom {
+            background-color: {{ site.color.primary-dark }};
+        }
+        .header-spacer {
+            height: 73px;
+            background-color: {{ site.color.secondary-dark }};
+            box-shadow: none;
+        }
+    </style>
+
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    
+    {% include nav.html %}
+    
+        <section id="title-section" class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+                    
+                    {% if page.date %}
+                    <small>{{ page.date | date_to_long_string }}</small>
+                    {% endif %}
+                    
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.subtitle }}</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="findings-intro" class="container-fluid content-section static-section" style="padding-bottom: 0px">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-7 col-sm-offset-1 col-md-offset-2">
+                    <p>Police pull over more than 50,000 drivers on a typical day, more than 20 million motorists every year. Yet the most common police interaction &mdash; the traffic stop &mdash; has not been tracked, at least not in any systematic way.</p> 
+                    <p>The Stanford Open Policing Project &mdash; a unique partnership between the Stanford Computational Journalism Lab and the Stanford Computational Policy Lab &mdash; is changing that. Starting in 2015, the Open Policing Project began requesting such data from state after state. To date, the project has collected and standardized over 200 million records of traffic stop and search data from across the country.</p>
+ 
+                    <p>Creating this resource has been marked by challenges.
+                    Some states don’t collect the demographic information of the drivers that police pull over. States that do collect the information don’t always release the data. Even when states do provide the information, the way they track and then process the data varies widely across the country, creating challenges for standardizing the information.</p>
+ 
+                    <p>Data from 21 state patrol agencies and 29 municipal
+police departments, comprising nearly 100 million traffic stops, are sufficiently detailed to facilitate rigorous statistical analysis. The result? The project has found significant racial disparities in policing. These disparities can occur for many reasons: differences in driving behavior, to name one. But, in some cases, we find evidence that bias also plays a role.</p>
+ 
+                    <p>On this site, you can explore our results. You’ll find <a href="/tutorials/">tutorials</a> that walk you through the steps to understand the data yourself, and information on a new statistical test of discrimination developed as part of this project. See our <a href="https://5harad.com/papers/100M-stops.pdf" target="_blank">technical paper</a> for more details.</p>
+ 
+                    <p>We encourage you to dig into the data. Toward that end, we’re releasing the records we’ve collected and our analysis code. We’ll be regularly updating the repository, and we’re collecting more information every day. The raw data used to render the charts on this page are available for download <a href="#raw-data">below</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stop-rates" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+
+
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <h2>Stop rates</h2>
+                </div>
+                <div class="col-sm-9 col-md-4 col-sm-offset-1 col-md-offset-2">
+                    <p>We start by analyzing the rates at which police stop
+                    motorists in locations across the country, relative to the
+                    population in those areas. The data show that officers
+                    generally stop black drivers at higher rates than white
+                    drivers, and stop Hispanic drivers at similar or lower
+                    rates than white drivers. These broad patterns persist after controlling for the drivers’ age and gender.</p>
+
+                    <p>Examining stop rates is a natural starting point, but they can be hard to interpret. For example, driving behavior and time spent on the road likely differ by race or ethnicity. The racial composition of the local population also may not be representative of those who drive through an area, especially when dealing with stops on highways.</p>
+                </div>
+                <div class="col-sm-7 col-md-5 col-xs-offset-1 col-sm-offset-2 col-md-offset-0 chart-container">
+                    {% include findings-btn-toolbar.html id="stop_rate" hide_mode="true" %}
+                    <div id="stop_rate_chart" class='chart'></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="after-stop" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <h2>After the stop</h2>
+                </div>
+                <div class="col-sm-9 col-md-4 col-sm-offset-1 col-md-offset-2">
+                    <p>In nearly every jurisdiction we find stopped black and
+                    Hispanic drivers are searched more often than white
+                    drivers. But
+                    if minorities also happen to carry contraband at higher
+                    rates, these higher search rates may stem from appropriate
+                    police work. Disentangling discrimination from effective
+                    policing is challenging and requires more subtle
+                    statistical analysis, as we do below.</p>
+                </div>
+                <div class="col-sm-7 col-md-5 col-xs-offset-1 col-sm-offset-2 col-md-offset-0 chart-container">
+                    {% include findings-btn-toolbar.html id="outcome" %}
+                    <div id="search_rate_chart" class='chart'></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="disparties" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <h2>Going beyond disparities: testing for discrimination in search decisions</h2>
+                </div>
+                <section id="outcome-test" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+                    <div class="row-fluid">
+                        <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                            <h3>The outcome test</h3>
+                        </div>
+                        <div class="col-sm-9 col-md-4 col-sm-offset-1 col-md-offset-2">
+                            <p>In the 1950s, the Nobel prize-winning economist Gary Becker proposed an elegant method to test for bias in search decisions: the outcome test.</p>
+                             
+                            <p>Becker proposed looking at search outcomes. If
+                            officers don’t discriminate, he argued, they should
+                            find contraband &mdash; like illegal drugs or
+                            weapons &mdash; on searched minorities at the same
+                            rate as on searched white drivers. If searches of
+                            minorities turn up contraband at lower rates than
+                            searches of white drivers, the outcome test suggests officers are applying a double standard, searching minorities on the basis of less evidence.</p>
+
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-xs-offset-1 col-sm-offset-2 col-md-offset-0 chart-container">
+                            {% include findings-btn-toolbar.html id="hit_rate" %}
+                            <div id="hit_rate_chart" class='chart'></div>
+                        </div>
+                        <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                            <p>In our data, the success rate of searches (or
+                            the hit rate) is generally lower for Hispanic
+                            drivers compared to white drivers; so the outcome
+                            test indicates Hispanic drivers face discrimination. For black drivers, search hit rates are typically in line with those of white drivers, indicating an absence of discrimination.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="hit-rates" class="container-fluid content-section static-section" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div class="row-fluid">
+                        <div class="col-sm-9 col-md-7 col-sm-offset-1 col-md-offset-2">
+                            <h3>Hit rates can be misleading</h3>
+                            <p>Becker’s outcome test is a compelling measure of discrimination. But it’s also an imperfect barometer of bias. The test can fail to detect discrimination when it’s there and can indicate discrimination when it’s not there, as we and other researchers have observed.</p>
+                             
+                            <p>For example, say police officers have a small universe of types of drivers they stop. In fact, suppose there are just two types of white drivers: some of the white drivers have a 5% likelihood of carrying contraband, and the others have a 75% chance of carrying contraband. Suppose there are also just two types of black drivers: some black drivers have a 5% chance of carrying contraband, and the others have a 50% chance of carrying contraband.</p>
+                             
+                            <p>In this hypothetical world, consider a fair police officer who only searches drivers with at least a 10% chance of carrying something illegal &mdash; regardless of race. In that situation, the white hit rate would be 75% and the black hit rate would be 50%. The officer used the same standard to search each driver, and so did not discriminate, even though the hit rates differ.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="threshold-test" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+                    <div class="row-fluid">
+                        <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                            <h3>The threshold test</h3>
+                        </div>
+                        <div class="col-sm-9 col-md-4 col-sm-offset-1 col-md-offset-2">
+                            <p>To address the shortcomings of the outcome test, we built on Becker’s ideas to develop a more robust statistical measure of discrimination: the threshold test. The threshold test combines information on both search rates and hit rates, and lets us directly infer the standard of evidence officers require before carrying out a search. In the example above, the threshold test tells us that the same 10% standard is applied to all drivers, indicating no bias. (See our <a href="https://5harad.com/papers/threshold-test.pdf" target="_blank">technical paper</a> for more information on how the test works.)</p>
+
+                            <p>When we apply the threshold test to our traffic
+                            stop data, we find that police require less
+                            suspicion to search black and Hispanic drivers than
+                            white drivers. This double standard is evidence of discrimination.</p>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-xs-offset-1 col-sm-offset-2 col-md-offset-0 chart-container">
+                            {% include findings-btn-toolbar.html id="inferred_threshold" %}
+                            <div id="inferred_threshold_chart" class='chart'></div>
+                        </div>
+                        <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                            <p>As with all statistical tests of bias, our
+                            threshold test has limits. For example, if officers
+                            suspect more serious criminal activity when
+                            searching black and Hispanic drivers compared to
+                            white drivers, then lower search thresholds for these groups may be the result of non-discriminatory factors. Our results are just one step in understanding complex police interactions.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="effects-of-marijuana" class="container-fluid content-section static-section" style="padding-bottom: 0px;">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <h2>The effects of legalizing recreational marijuana use</h2>
+                    <p>Several states have recently legalized the use of recreational marijuana. We have detailed data in two of these states: Colorado and Washington.</p>
+                     
+                    <p>After marijuana use was legalized, Colorado and Washington saw dramatic drops in search rates. That’s because many searches are drug-related. Take away marijuana as a crime and searches go down. (In both states we exclude searches after an arrest and other searches that are conducted as a procedural matter, regardless of any suspicion of drug possession.)</p>
+                     
+                    <p>In Washington and Colorado, far fewer people &mdash;
+                    both white and minority drivers &mdash; are searched overall. However, the racial disparities in searches remain and there is a persistent gap in the threshold for searching white and minority drivers.</p>
+                </div>
+            </div>
+            <div class='row-fluid'>
+                <div class='col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2' style="text-align:center; margin-bottom:25px;">
+                    <div id="legal_states_race_btns" class="btn-group btn-group-sm line-chart-btns">
+                        <button id="all_legal_states_btn" type="button" class="race-btn active btn">All</button>
+                        <button id="black_legal_states_btn" type="button" class="race-btn inactive btn black">Black</button>
+                        <button id="hispanic_legal_states_btn" type="button" class="race-btn inactive btn hispanic">Hispanic</button>
+                        <button id="white_legal_states_btn" type="button" class="race-btn inactive btn white">White</button>
+                    </div>
+                </div>                
+            </div>
+            <div class="row-fluid" id="legal_states">
+                <div class="col-sm-5 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 double-chart-col">  
+                    <h4 class="chart-title">Colorado</h4>
+                    <h5 class="chart-title">Searches per 100 stops</h5>
+                    <div id="CO_search_chart" class="chart-sm" style='margin: 0 auto;'></div>
+                </div>
+                <div class="col-sm-5 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 double-chart-col">
+                    <h4 class="chart-title">Washington</h4>
+                    <h5 class="chart-title">Searches per 100 stops</h5>
+                    <div id="WA_search_chart" class="chart-sm" style='margin: 0 auto;'></div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <p>In 12 states where we have data and recreational marijuana is still illegal, search rates remain high.</p>
+                </div>
+            </div>
+            <div class="row-fluid" style="text-align:center;">
+                <div class='col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2' style="text-align:center; margin-bottom:25px;">
+                    <div id="nonlegal_states_race_btns" class="btn-group line-chart-btns btn-group-sm" style="text-align:center;">
+                        <button id="all_nonlegal_states_btn" type="button" class="race-btn btn active">All</button>
+                        <button id="black_nonlegal_states_btn" type="button" class="race-btn btn inactive black">Black</button>
+                        <button id="hispanic_nonlegal_states_btn" type="button" class="race-btn btn inactive hispanic">Hispanic</button>
+                        <button id="white_nonlegal_states_btn" type="button" class="race-btn inactive btn white">White</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid small-minitures-container" id="nonlegal_states" style='margin-left: 40px'>
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Arizona</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="AZ_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px;  margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">California</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="CA_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px;  margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Florida</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="FL_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Massachusetts</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="MA_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Montana</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="MT_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">North Carolina</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="NC_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Ohio</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="OH_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Rhode Island</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="RI_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">South Carolina</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="SC_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Texas</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="TX_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Vermont</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="VT_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+
+                <div class="col-xs-5 col-sm-4 col-md-offset-1" style="width:280px; margin-left:auto;margin-right:auto;">
+                    <h5 class="chart-title">Wisconsin</h5>
+                    <h6 class="chart-title">Searches per 100 stops</h6>
+                    <div id="WI_search_chart" class="chart-xs" style='margin: 0 auto;'></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="raw-data-section" class="container-fluid content-section static-section">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-sm-offset-1 col-md-offset-2">
+                    <h2 id="raw-data">Raw data</h2>
+                    <p>The data used to render these charts are contained in the following files:</p>
+                    <p>
+                      <ul>
+                        <li>
+                          <i class="fa fa-file" aria-hidden="true"></i>
+                          <a href="/assets/data/findings/state.csv" download="opp-stops_state.csv">State-level stop data</a>
+                        </li>
+                        <li>
+                          <i class="fa fa-file" aria-hidden="true"></i>
+                          <a href="/assets/data/findings/city.csv" download="opp-stops_city.csv">City-level stop data</a>
+                        </li>
+                        <li>
+                          <i class="fa fa-file" aria-hidden="true"></i>
+                          <a href="/assets/marijuana_search_rates.csv" download="opp-search-marijuana_state.csv">Marijuana search rates</a>
+                        </li>
+                      </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    {% include footer.html %}
+    {% include js-findings.html %}
+
+    </body>
+</html>

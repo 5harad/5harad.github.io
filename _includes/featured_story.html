@@ -1,0 +1,19 @@
+<section id="featured-story" class="container-fluid content-section" style="border-bottom: 1px solid gainsboro;">
+    <div class="row-fluid">
+        <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+
+            <div class="row article row-eq-height" style="padding-bottom: 0;">
+                <div class="col-md-6">
+                    <a href="{{ site.featured-story.url }}"><img src="{{ site.featured-story.img }}" width="100%"></a>
+                </div>
+                <div class="col-md-6 article-info {{ site.featured-story.publication-type }}" publication-type="{{ site.featured-story.publication-type }}">
+                    <a href="{{ site.featured-story.url }}"><h2>{{ site.featured-story.headline }}</h2></a>
+                    <small class="byline">{{ site.featured-story.authors }}</small>
+                    <p>{{ site.featured-story.blurb }}</p> 
+                    <small class="byline">{{ site.featured-story.publication }}</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{ "/js/jquery.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- D3 -->
+    <script src="{{ "/js/d3.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{ "/js/jquery.easing.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Globals for findings visualizations -->
+    <script>
+        var stateNames = {
+            "AZ": "Arizona",
+            "CA": "California",
+            "CO": "Colorado",
+            "CT": "Connecticut",
+            "FL": "Florida",
+            "IL": "Illinois",
+            "IA": "Iowa",
+            "MD": "Maryland",
+            "MA": "Massachusetts",
+            "MI": "Michigan",
+            "MS": "Mississippi",
+            "MO": "Missouri",
+            "MT": "Montana",
+            "NE": "Nebraska",
+            "NV": "Nevada",
+            "NH": "New Hampshire",
+            "NJ": "New Jersey",
+            "NC": "North Carolina",
+            "ND": "North Dakota",
+            "OH": "Ohio",
+            "OR": "Oregon",
+            "RI": "Rhode Island",
+            "SC": "South Carolina",
+            "SD": "South Dakota",
+            "TN": "Tennessee",
+            "TX": "Texas",
+            "VT": "Vermont",
+            "VA": "Virginia",
+            "WA": "Washington",
+            "WI": "Wisconsin",
+            "WY": "Wyoming"
+        };
+    </script>
+
+    <!-- Draw scatterplots -->
+    <script src="{{ "/js/scatterplot.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Draw marijuana search charts -->
+    <script src="{{ "/js/mj-search-charts.js" | prepend: site.baseurl }}"></script>
+    
+    <!-- Google analytics -->
+    <script>
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-101231379-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>

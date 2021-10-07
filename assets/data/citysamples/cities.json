@@ -1,0 +1,202 @@
+{
+    "cities": [
+        {
+            "state": "AZ",
+            "city": "Mesa",
+            "time": true,
+            "center": {
+                "lat": 33.4152,
+                "lon": -111.8315
+            }
+        },
+        {
+            "state": "CA",
+            "city": "Bakersfield",
+            "time": true,
+            "center": {
+                "lat": 35.3733,
+                "lon": -119.0187
+            }
+        },
+        {
+            "state": "CA",
+            "city": "San Francisco",
+            "time": true,
+            "center": {
+                "lat": 37.7749,
+                "lon": -122.4194
+            }
+        },
+        {
+            "state": "CA",
+            "city": "San Jose",
+            "time": true,
+            "center": {
+                "lat": 37.3382,
+                "lon": -121.8863
+            }
+        },
+        {
+            "state": "CA",
+            "city": "Santa Ana",
+            "center": {
+                "lat": 33.7455,
+                "lon": -117.8677
+            }
+        },
+        {
+            "state": "CT",
+            "city": "Hartford",
+            "time": true,
+            "center": {
+                "lat": 41.7658,
+                "lon": -72.6734
+            }
+        },
+        {
+            "state": "KS",
+            "city": "Wichita",
+            "time": true,
+            "center": {
+                "lat": 37.6872,
+                "lon": -97.3301
+            }
+        },
+        {
+            "state": "KY",
+            "city": "Owensboro",
+            "time": true,
+            "center": {
+                "lat": 37.7719,
+                "lon": -87.1112
+            }
+        },
+        {
+            "state": "MN",
+            "city": "Saint Paul",
+            "center": {
+                "lat": 44.9537,
+                "lon": -93.0900
+            },
+            "hidden": true
+        },
+        {
+            "state": "ND",
+            "city": "Grand Forks",
+            "time": true,
+            "center": {
+                "lat": 47.9253,
+                "lon": -97.0329
+            }
+        },
+        {
+            "state": "NJ",
+            "city": "Camden",
+            "center": {
+                "lat": 39.9259,
+                "lon": -75.1196
+            },
+            "hidden": true
+        },
+        {
+            "state": "OH",
+            "city": "Cincinnati",
+            "time": true,
+            "center": {
+                "lat": 39.1031,
+                "lon": -84.5120
+            }
+        },
+        {
+            "state": "OH",
+            "city": "Columbus",
+            "time": true,
+            "center": {
+                "lat": 39.9612,
+                "lon": -82.9988
+            }
+        },
+        {
+            "state": "OK",
+            "city": "Oklahoma City",
+            "center": {
+                "lat": 35.4676,
+                "lon": -97.5164
+            },
+            "hidden": true
+        },
+        {
+            "state": "OK",
+            "city": "Tulsa",
+            "time": true,
+            "center": {
+                "lat": 36.1540,
+                "lon": -95.9928
+            }
+        },
+        {
+            "state": "PA",
+            "city": "Philadelphia",
+            "time": true,
+            "center": {
+                "lat": 39.9526,
+                "lon": -75.1652
+            }
+        },
+        {
+            "state": "TN",
+            "city": "Nashville",
+            "time": true,
+            "center": {
+                "lat": 36.1627,
+                "lon": -86.7816
+            }
+        },
+        {
+            "state": "TX",
+            "city": "Arlington",
+            "time": true,
+            "center": {
+                "lat": 32.7357,
+                "lon": -97.1081
+            }
+        },
+        {
+            "state": "TX",
+            "city": "Houston",
+            "center": {
+                "lat": 29.7604,
+                "lon": -95.3698
+            },
+            "hidden": true,
+            "comment": "Lots of unknowns, no hispanic"
+        },
+        {
+            "state": "TX",
+            "city": "San Antonio",
+            "time": true,
+            "center": {
+                "lat": 29.4241,
+                "lon": -98.4936
+            }
+        },
+        {
+            "state": "VT",
+            "city": "Burlington",
+            "time": true,
+            "center": {
+                "lat": 44.4759,
+                "lon": -73.2121
+            }
+        },
+        {
+            "state": "WI",
+            "city": "Madison",
+            "time": true,
+            "center": {
+                "lat": 43.0731,
+                "lon": -89.4012
+            }
+        }
+    ]
+}

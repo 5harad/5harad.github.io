@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include head.html %}
+    {% include head_style.html %}
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    
+    {% include nav.html %}
+        <section id="title-section" class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+                    
+                    {% if page.date %}
+                    <small>{{ page.date | date_to_long_string }}</small>
+                    {% endif %}
+                    
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.subtitle }}</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="{{ page.title }}" class="container-fluid content-section static-section">
+            <div class="row-fluid">
+                <div class="col-sm-9 col-md-8 col-md-offset-2 col-sm-offset-1">
+                    
+                    {{ content }}
+                    
+                    {% if page.title == 'Publications' %}
+                    <div class="research-container">
+                        <h1>Data and policing</h1>
+                        {% for post in site.justice_pubs %}
+                            {% include publication_row.html %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="research-container">
+                        <h1>Related work</h1>
+                        {% for post in site.publications %}
+                            {% include publication_row.html %}
+                        {% endfor %}
+                    </div>
+
+                    {% elsif page.title == 'News' %}
+                    <div class="research-container">
+                        <h1>What others are saying</h1>
+                        {% for post in site.news %}
+                            {% include news_row.html %}
+                        {% endfor %}
+                    </div>
+
+                    {% elsif page.title == 'Tutorials' %}
+                    <div class="tutorial">
+                        <div style="margin-bottom:4rem;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/F-fbgl_KOB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        {% include tutorial.html %}
+                    </div>
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+        </section>
+        
+        {% include footer.html %}
+        {% include js.html %}
+    </body>
+</html>

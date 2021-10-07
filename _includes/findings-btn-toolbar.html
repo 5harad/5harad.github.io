@@ -1,0 +1,36 @@
+<div class="btn-toolbar" style="text-align:center; width:100%; overflow:visible;">
+    <div class="findings-location-selector">
+        <!-- location selector -->
+        <div class="btn-group btn-group-sm" role="group">
+        {% if include.hide_mode != "true" %}
+            <button type="button" class="btn btn-mode" data-value="State" data-chart="{{include.id}}">State</button>
+            <button type="button" class="btn btn-mode" data-value="City" data-chart="{{include.id}}">City</button>
+        {% endif %}
+            <div
+                id="{{include.id}}_states_dropdown"
+                class="dropdown btn-group"
+                role="group">
+              <button
+                class="dropdown-toggle state-dropdown"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+                value='All'>
+              </button>
+              <ul id="{{include.id}}_states" class="dropdown-menu">
+              </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <!-- race toggle -->
+        <div id="{{include.id}}_race_btns" class="btn-group btn-group-sm" role="group">
+            <button id="{{include.id}}_both_btn" type="button" class="race-btn scatter active btn">Both</button>
+            <button id="{{include.id}}_black_btn" type="button" class="race-btn scatter inactive black btn">Black</button>
+            <button id="{{include.id}}_hispanic_btn" type="button" class="race-btn scatter inactive hispanic btn">Hispanic</button>
+        </div>
+    </div>
+
+</div>

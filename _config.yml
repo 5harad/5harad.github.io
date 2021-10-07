@@ -1,0 +1,266 @@
+# Site settings
+title: The Stanford Open Policing Project
+email: open-policing@lists.stanford.edu
+url: https://openpolicing.stanford.edu
+description: We are collecting, releasing, and analyzing data on millions of traffic stops across the United States.
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark:   '#0A1612'
+  secondary-dark: '#1B2930'
+  primary-blue:   '#2090FF'
+  light-gray:     '#E6E6EA'
+
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  github: https://github.com/stanford-policylab/opp
+
+
+# Partner organizations
+partners:
+  - name: The Knight Foundation
+    logo: /img/KF_logo.png
+    link: https://knightfoundation.org/
+
+  - name: The Stanford Computational Journalism Lab
+    logo: /img/scjl_logo.png
+    link: http://cjlab.stanford.edu/ 
+
+  - name: Stanford Computational Policy Lab
+    logo: /img/scpl_logo.svg
+    link: https://policylab.stanford.edu/
+
+# Comment this out if you don't want a feature story
+featured-story:
+  # headline: Featured story
+  # authors:  Author names go here
+  # url:      story url
+  # blurb:    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc quam, fringilla non magna a, congue ultricies nulla. Aenean vulputate ex varius, porttitor nibh ut, iaculis nulla. Aenean id sodales ante. Sed ac accumsan leo, ut hendrerit libero. Duis eu nulla non arcu cursus vulputate.
+  # img:      /img/pexels-photo-30732.jpg
+  # publication: Publication name
+
+
+# Update this list whenever a new publication comes out that you want to highlight
+
+publications:
+  - headline:         An Analysis of the Metropolitan Nashville Police Department’s Traffic Stop Practices
+    authors:          Alex Chohlas-Wood, Sharad Goel, Amy Shoemaker, and Ravi Shroff
+    url:              https://policylab.stanford.edu/media/nashville-traffic-stops.pdf
+    blurb:            Examining the Metropolitan Nashville Police Department’s (MNPD) traffic stop practices in 2017, drawing on an extensive dataset of records provided by the department.
+    img:              /img/nashville.png
+    publication:      White paper, 2018
+    publication-type: report
+
+  - headline: Simple rules for complex decisions 
+    authors:  S. Goel, J. Jung, C. Concannon, R. Shroff, and D.G. Goldstein.
+    url:      https://5harad.com/papers/simple-rules.pdf
+    blurb:    By following simple guidelines for setting bail, judges can detain half as many defendants without appreciably increasing the number who miss their court dates. 
+    img:      /img/pexels-photo-30732.jpg
+    publication: Working paper, 2017.
+    publication-type: research
+
+  - headline: Algorithmic decision making and the cost of fairness
+    authors:  S. Corbett-Davies, E. Pierson, A. Feller, S. Goel, and A. Huq.
+    url:      https://5harad.com/papers/fairness.pdf
+    blurb:    When a judge makes a bail decision, there is tension between reducing racial disparities and treating all defendants equally. <a href="https://www.youtube.com/watch?v=QtTmzVTrJ08&feature=youtu.be" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> Video link</a>
+    img:      /img/abstract-wall-wikimedia.jpg
+    publication: Proceedings of the International Conference on Knowledge Discovery & Data Mining, 2017.
+    publication-type: research
+
+  - headline: A computer program used for bail and sentencing decisions was labeled biased against blacks. It’s actually not that clear.
+    authors:  S. Corbett-Davies, E. Pierson, A. Feller, and S. Goel.
+    url:      https://www.washingtonpost.com/news/monkey-cage/wp/2016/10/17/can-an-algorithm-be-racist-our-analysis-is-more-cautious-than-propublicas/
+    blurb:    What does it mean for an algorithm to be fair?
+    img:      /img/pexels-crowd.jpg
+    publication: The Washington Post
+    publication-type: commentary
+
+  - headline: Simple rules
+    authors:  J. Jung, C. Concannon, R. Shroff, S. Goel, and D.G. Goldstein.
+    url:      https://hbr.org/2017/04/creating-simple-rules-for-complex-decisions
+    blurb:    Recognizing the real-world constraints managers and engineers face, the authors developed a simple, three-step procedure for creating rubrics that improve yes-or-no decisions.
+    img:      /img/pexels-photo-30732.jpg
+    publication: Harvard Business Review
+    publication-type: commentary
+
+  - headline: Personalized risk assessments in the criminal justice system  
+    authors:  S. Goel, J. Rao, and R. Shroff. 
+    url:      https://5harad.com/papers/risky.pdf
+    blurb:    In the criminal justice system, risk assessment tools can be used both to assist upcoming decisions and audit past actions.
+    img:      /img/aer.png
+    publication: 'The American Economic Review: Papers and Proceedings, Vol. 106, 2016.'
+    publication-type: research
+
+# For the "Data and the criminal justice system" section on publications
+justice_pubs:
+  - headline: A large-scale analysis of racial disparities in police stops across the United States 
+    authors:  E. Pierson, C. Simoiu, J. Overgoor, S. Corbett-Davies, D. Jenson, A. Shoemaker, V. Ramachandran, P. Barghouty, C. Phillips, R. Shroff, and S. Goel
+    url:      https://5harad.com/papers/100M-stops.pdf
+    blurb:    We analyze a unique dataset of nearly 100 million traffic stops carried out by state and local law enforcement agencies.
+    img:      /img/pexels-photo-225225.jpg
+    publication: Nature Human Behaviour, Vol. 4, 2020.
+    publication-type: research
+    
+  - headline: Police data suggests black and Hispanic drivers are searched more often than whites
+    authors:  S. Goel and C. Phillips.
+    url:      http://www.slate.com/articles/health_and_science/science/2017/06/statistical_analysis_of_data_from_20_states_suggests_evidence_of_racially.html
+    blurb:    We filed public records requests to gain access to police data, and found evidence of racially biased policing.
+    img:      /img/pexels-cars.jpg
+    publication: Slate, 2017.
+    publication-type: commentary
+
+  - headline: Are traffic stops prone to racial bias?
+    authors:  V. Ramachandran and K. Kramon.
+    url:      https://www.themarshallproject.org/2016/06/21/are-traffic-stops-prone-to-racial-bias
+    blurb:    An attempt to find out if traffic stops are prone to racial bias confronts a frayed patchwork of data across the country.
+    img:      /img/mp.jpg
+    publication: The Marshall Project
+    publication-type: journalism
+    
+  - headline: The problem of infra-marginality in outcome tests for discrimination 
+    authors:  C. Simoiu, S. Corbett-Davies, and S. Goel.
+    url:      https://5harad.com/papers/threshold-test.pdf
+    blurb:    We introduce a new statistical test of discrimination — the threshold test — that mitigates problems with traditional measures of bias.
+    img:      /img/pexels-photo-340885.jpg
+    publication: Annals of Applied Statistics, Vol. 11, 2017.
+    publication-type: research
+    
+  - headline: Fast threshold tests for detecting discrimination
+    authors:  E. Pierson, S. Corbett-Davies, and S. Goel.
+    url:      https://5harad.com/papers/fasttt.pdf
+    blurb:    We develop a method for fitting threshold tests that is two orders of magnitude faster than past approaches, reducing computation from hours to minutes.
+    img:      /img/pexels-photo.jpg
+    publication: The 21st International Conference on Artificial Intelligence and Statistics, 2018.
+    publication-type: research    
+
+  - headline: Precinct or prejudice? Understanding racial disparities in New York City's stop-and-frisk policy 
+    authors:  S. Goel, J. Rao, and R. Shroff. 
+    url:      https://5harad.com/papers/stop-and-frisk.pdf
+    blurb:    With statistically informed rules, police departments can reduce police stops and mitigate racial disparities without sacrificing public safety.
+    img:      /img/pexels-photo-67088.jpg
+    publication: Annals of Applied Statistics, Vol. 10, 2016.
+    publication-type: research 
+
+  - headline: Combatting police discrimination in the age of big data 
+    authors:  S. Goel, M. Perelman, R. Shroff, and D. Alan Sklansky.
+    url:      https://5harad.com/papers/policing-the-police.pdf
+    blurb:    The exponential growth of information about police activity offers new opportunities to improve the fairness and effectiveness of law enforcement.
+    img:      /img/new-criminal-law.png
+    publication: New Criminal Law Review, Vol. 20, 2017. 
+    publication-type: research
+
+news:
+  - headline: "Data scientist Amy Shoemaker sheds light on new study over police stops"
+    url: https://thehill.com/hilltv/rising/440386-data-scientist-amy-shoemaker-sheds-light-on-new-study-over-police-stops
+    authors: The Hill
+    blurb: "Stanford University data scientist Amy Shoemaker encouraged local journalists to delve into data on racial biases at police departments in an interview that aired Wednesday on Hill.TV's \"Rising.\""
+    img: /img/hill.jpg
+    publication: April 24, 2019
+
+  - headline: "Researchers studied nearly 100 million traffic stops and found black motorists are more likely to be pulled over"
+    url:      https://www.cnn.com/2019/03/21/us/police-stops-race-stanford-study-trnd/index.html
+    authors:  CNN
+    blurb:    "A study of nearly 100 million traffic stops from around the US has concluded that, on average, black drivers are 20% more likely to get pulled over than white drivers."
+    img:      /img/cnn.jpg
+    publication: March 21, 2019
+
+  - headline: "Study Finds Racial Bias In Police Traffic Stops And Searches" 
+    url:      https://www.huffpost.com/entry/white-black-drivers-police-stops-searches-racial-bias_n_5c916558e4b0f7ed945d4ba3
+    authors:  HuffPost
+    blurb:    "Black drivers were about 20 percent more likely than whites to be pulled over, according to an analysis of nearly 100 million cases."
+    img:      /img/hufpo.png
+    publication: March 19, 2019
+
+  - headline: "Black drivers in America face discrimination by the police"
+    authors:  The Economist
+    url:      https://www.economist.com/graphic-detail/2019/03/15/black-drivers-in-america-face-discrimination-by-the-police
+    blurb:    "An analysis of nearly 100m traffic stops suggests that many officers treat “driving while black” as a crime"
+    img:      /img/econ2.png
+    publication: March 15, 2019
+
+  - headline: "Inside 100 million police traffic stops: New evidence of racial bias"
+    authors:  NBC News
+    url:      https://www.nbcnews.com/news/us-news/inside-100-million-police-traffic-stops-new-evidence-racial-bias-n980556
+    blurb:    Stanford researchers found that black and Latino drivers were stopped more often than white drivers, based on less evidence of wrongdoing.
+    img:      /img/nbcnews2.png
+    publication: March 13, 2019
+
+  - headline: The Daily Show
+    authors:  With Trevor Noah
+    url:      http://www.cc.com/video-clips/cwbj0i/the-daily-show-with-trevor-noah-systemic-racism-in-law-enforcement
+    blurb:    A Stanford University study uncovers racial disparity in routine traffic stops.
+    img:      /img/daily_show.png
+    publication: August 3, 2017
+
+  - headline: Police searches drop dramatically in states that legalized marijuana
+    authors:  NBC News
+    url:      http://www.nbcnews.com/news/us-news/police-searches-drop-dramatically-states-legalized-marijuana-n776146
+    blurb:    Traffic searches by highway patrols in Colorado and Washington dropped by nearly half after the two states legalized marijuana in 2012. That also reduced the racial disparities in the stops, according to a new analysis of police data, but not by much. Blacks and Hispanics are still searched at higher rates than whites.
+    img:      /img/nbcnews.png
+    publication: June 23, 2017
+
+  - headline: Measuring racial bias in police forces
+    authors:  The Economist
+    url:      http://www.economist.com/news/united-states/21723877-driving-while-black-really-offence-measuring-racial-bias-police-forces
+    blurb:    Is driving while black really an offense?
+    img:      /img/economist.png
+    publication: June 22, 2017
+
+  - headline: Why legal pot could dramatically cut state’s police vehicle searches
+    authors: KQED News
+    url: https://ww2.kqed.org/news/2017/06/21/why-legal-pot-could-dramatically-cut-states-police-vehicle-searches/
+    blurb: Colorado and Washington saw vehicle searches by police officers fall dramatically after legalizing marijuana &mdash; a trend that could have implications in California, where voters legalized recreational
+    img: /img/kqed.jpg
+    publication: June 21, 2017
+
+  - headline: "How to cut down on searches in traffic stops: legalize pot"
+    authors:  The Marshall Project
+    url:      https://www.themarshallproject.org/2017/06/21/how-to-cut-down-on-traffic-stops-legalize-pot/
+    blurb:    New data shows legalization leads to fewer encounters between cops and drivers, but racial disparities remain.
+    img:      /img/marshallproject.png
+    publication: June 21, 2017
+  
+  - headline: Police officers are more likely to cite black or Latino drivers than whites during traffic stops
+    authors:  Daily Mail
+    url:      http://www.dailymail.co.uk/news/article-4619186/Cops-issue-traffic-citations-blacks-Latinos.html
+    blurb:    The findings are based on a Stanford University study of 100 million traffic stops in 31 states between 2011 and 2015.
+    img:      /img/dailymail.jpg
+    publication: June 19, 2017
+
+  - headline: Black and Latino drivers are searched based on less evidence and are more likely to be arrested, Stanford researchers find
+    authors:  Los Angeles Times
+    url:      http://www.latimes.com/local/lanow/la-me-ln-stanford-minority-drive-disparties-20170619-story.html
+    blurb:    Stanford researchers find police require less suspicion to search Latino and black drivers; once pulled over, blacks and Latinos are more likely to be cited, searched and arrested.
+    img:      /img/latimes.jpg
+    publication: June 19, 2017
+
+  - headline: Stanford study finds bias in police searches
+    authors:  The Mercury News
+    url:      http://www.mercurynews.com/2017/06/19/police-stop-black-and-latino-drivers-more-often-than-whites-stanford-study-finds/
+    blurb:    A Stanford analysis of nationwide traffic stop-and-search records show minorities are held to a double standard and searched on the basis of less evidence. 
+    img:      /img/mercurynews.jpg
+    publication: June 19, 2017
+
+  - headline: Black and Latino drivers more likely to be cited and arrested than whites during traffic stops, study finds
+    authors:  NY Daily News
+    url:      http://www.nydailynews.com/news/national/black-latino-drivers-cited-arrested-article-1.3259372
+    blurb:    Police officers are more likely to search, cite and arrest drivers who are black or Hispanic, a study finds.
+    img:      /img/nydaily.jpg
+    publication: June 19, 2017
+
+  - headline: New database allows Stanford researchers to find disparities in officers’ treatment of minority motorists
+    authors:  Stanford News
+    url:      http://news.stanford.edu/2017/06/19/database-reveals-disparities-officers-treatment-minority-motorists/
+    blurb:    The Stanford Open Policing Project obtained data on millions of state patrol stops and found evidence that minorities are held to a double standard. The data are being shared with researchers, journalists and the public.
+    img:      /img/map-narrow.png
+    publication: June 19, 2017
+
+
+# Build settings
+markdown:   kramdown
+permalink:  pretty
+highlighter: rouge
+plugins:
+  - jekyll-babel
+
